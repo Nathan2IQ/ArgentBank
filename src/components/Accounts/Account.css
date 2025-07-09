@@ -1,0 +1,44 @@
+.display-none {
+    display: none;
+}
+
+.account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid 1px black;
+    background-color: white;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 32px;
+    padding: 24px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.account__title {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.account__amount {
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.account__description {
+    margin: 0;
+}
+
+.view__btn {
+    color: white;
+    border-color: #00bc77;
+    background-color: #00bc77;
+    margin-top: 16px;
+    padding: 8px 15px;
+    font-weight: bold;
+    font-size: 18px;
+}

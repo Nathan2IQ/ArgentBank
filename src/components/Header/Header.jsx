@@ -15,7 +15,7 @@ function Header() {
 
                 <div>
                     <Link  className='nav__sign' to="/sign-in">
-                        <i class="fa-solid fa-circle-user"></i>
+                        <i className="fa-solid fa-circle-user"></i>
                         <p>Sign In</p>
                     </Link>
                 </div>

@@ -3,7 +3,7 @@ import Home from './pages/home/home';
 import SignIn from './pages/sign-in/sign-in';
 import User from './pages/user/user';
 
-export default function AppRouter() {
+function AppRouter() {
   return (
     <Router>
       <Routes>
@@ -14,3 +14,5 @@ export default function AppRouter() {
     </Router>
   );
 }
+
+export default AppRouter

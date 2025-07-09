@@ -1,0 +1,20 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+    color: white;
+}
+
+.profile__user {
+    text-align: center;
+    width: 100%;
+}
+
+.profile__btn {
+    padding: 10px;
+    border-color: #00bc77;
+    background-color: #00bc77;
+    color: white;
+    font-weight: bold;
+}
