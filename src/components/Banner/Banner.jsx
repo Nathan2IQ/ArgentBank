@@ -1,5 +1,5 @@
 import './Banner.css'
-import bannerImg from '../../assets/img/bank-tree.jpeg'
+import bannerImg from '../../assets/img/bank-tree.webp'
 
 function Banner() {
     

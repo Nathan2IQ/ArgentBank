@@ -2,10 +2,6 @@
     display: none;
 }
 
-.features {
-    display: flex;
-}
-
 .feature__item {
     display: flex;
     flex-direction: column;
