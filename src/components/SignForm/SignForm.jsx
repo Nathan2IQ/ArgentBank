@@ -1,41 +1,94 @@
-import { Link } from 'react-router-dom'
-import './SignForm.css'
+import "./SignForm.css";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../store/authReducer";
 
 function SignForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [remember, setRemember] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    return (
-        <main>
-            <div className='dark__bg'>
-                <section className='signIn__card'>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
 
-                    <i class="fa-solid fa-circle-user"></i>
-                    <h1>Sign In</h1>
+    try {
+      const response = await fetch("http://localhost:3001/api/v1/user/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+      if (data.body && data.body.token) {
+        dispatch(login(data.body.token));
+        if (remember) {
+          localStorage.setItem("token", data.body.token);
+        } else {
+          localStorage.removeItem("token");
+        }
+        navigate("/user");
+      } else {
+        setError("Identifiants incorrects");
+      }
+    } catch {
+      setError("Erreur server");
+    }
+  };
 
-                    <form>
+  return (
+    <main>
+      <div className="dark__bg">
+        <section className="signIn__card">
+          <i className="fa-solid fa-circle-user"></i>
+          <h1>Sign In</h1>
 
-                        <div className='input__wrapper'>
-                            <label for='username'>Username</label>
-                            <input type='text' id='username'/>
-                        </div>
-
-                        <div className='input__wrapper'>
-                            <label for='password'>Password</label>
-                            <input type='password' id='password'/>
-                        </div>
-
-                        <div className='input__remember'>
-                            <input type='checkbox' id='remember-me'/>
-                            <label for='remember-me'>Remember me</label>
-                        </div>
-
-                        <Link to='/user' className='signin__btn'>Sign In</Link>
-
-                    </form>
-
-                </section>
+          <form onSubmit={handleSubmit}>
+            <div className="input__wrapper">
+              <label htmlFor="email">E-mail</label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className={error ? "input__error" : ""}
+              />
             </div>
-        </main>
-    )
+
+            <div className="input__wrapper">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className={error ? "input__error" : ""}
+              />
+            </div>
+
+            <div className="input__remember">
+              <input
+                type="checkbox"
+                id="remember-me"
+                checked={remember}
+                onChange={(e) => setRemember(e.target.checked)}
+              />
+              <label htmlFor="remember-me">Remember me</label>
+            </div>
+
+            <button type="submit" className="signin__btn">
+              Sign In
+            </button>
+          </form>
+        </section>
+      </div>
+    </main>
+  );
 }
 
-export default SignForm
+export default SignForm;

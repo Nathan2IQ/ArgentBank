@@ -1,43 +1,51 @@
 .display-none {
-    display: none;
+  display: none;
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-    margin: 5px 20px 3px 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 20px 3px 20px;
 }
 
 .logo {
-    width: 200px;
+  width: 200px;
 }
 
 .nav div {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .nav__sign {
-    display: flex;
-    align-items: center;
-    margin-right: 8px;
-    gap: 5px;
-    text-decoration: none;
-    color: #2c3e50;
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  gap: 5px;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
 }
 
 .nav__sign .fa-circle-user {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .nav__sign:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+.logout {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logout:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 786px) {
-    
-    .nav {
-        margin: 3px 12px;
-    }
+  .nav {
+    margin: 3px 12px;
+  }
 }
