@@ -1,20 +1,64 @@
 .profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 32px;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+  color: white;
 }
 
 .profile__user {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 
 .profile__btn {
-    padding: 10px;
-    border-color: #00bc77;
-    background-color: #00bc77;
-    color: white;
-    font-weight: bold;
+  padding: 10px;
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: white;
+  font-weight: bold;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 20px 30px;
+  max-width: 30%;
+}
+
+.modal__btn {
+  background-color: #00bc77;
+  color: #fff;
+  border-color: #00bc77;
+  padding: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.modal__txt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid #ccc;
+  color: grey;
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.modal__input {
+  width: 120px;
+  text-align: center;
+  font-size: 18px;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid black;
 }

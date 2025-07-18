@@ -2,7 +2,7 @@ import "./SignForm.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../store/authReducer";
+import { login } from "../../store/authSlice";
 
 function SignForm() {
   const [email, setEmail] = useState("");
@@ -80,6 +80,8 @@ function SignForm() {
               />
               <label htmlFor="remember-me">Remember me</label>
             </div>
+
+            {error && <div className="form__error">{error}</div>}
 
             <button type="submit" className="signin__btn">
               Sign In
