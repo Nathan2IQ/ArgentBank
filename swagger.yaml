@@ -149,6 +149,55 @@ paths:
       "500":
         description: Internal Server Error
 
+# route pour mettre à jour le solde d'un compte
+/accounts/{accountId}/balance:
+  put:
+    security:
+      - Bearer: []
+    tags:
+      - Accounts Module
+    summary: Update account balance
+    description: API for updating the balance of an account
+    parameters:
+      - name: accountId
+        in: path
+        required: true
+        type: string
+        description: The ID of the account
+      - in: body
+        name: body
+        description: New balance value
+        required: true
+        schema:
+          type: object
+          properties:
+            balance:
+              type: number
+              description: New balance for the account
+    produces:
+      - application/json
+    responses:
+      "200":
+        description: Account balance updated successfully
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+            message:
+              type: string
+            body:
+              type: object
+              properties:
+                accountId:
+                  type: string
+                balance:
+                  type: number
+      "400":
+        description: Invalid Fields
+      "500":
+        description: Internal Server Error
+
 securityDefinitions:
   Bearer:
     type: apiKey
@@ -237,10 +286,6 @@ definitions:
   TransactionsListResponse:
     type: object
     properties:
-      status:
-        type: integer
-      message:
-        type: string
       body:
         type: array
         items:
