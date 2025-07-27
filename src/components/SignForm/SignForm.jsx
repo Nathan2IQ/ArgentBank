@@ -25,6 +25,7 @@ function SignForm() {
       const data = await response.json();
       if (data.body && data.body.token) {
         dispatch(login(data.body.token));
+        sessionStorage.setItem("token", data.body.token);
         if (remember) {
           localStorage.setItem("token", data.body.token);
         } else {
